@@ -15,7 +15,7 @@ export default function LoginPage() {
     type: "success" | "error",
     duration: number
   ) => {
-    const color = type === "success" ? "#16a34a" : "#dc2626"; // green or red
+    const color = type === "success" ? "#16a34a" : "#dc2626";
     const icon = type === "success" ? "✔️" : "❌";
 
     toast.custom(
@@ -26,7 +26,6 @@ export default function LoginPage() {
         >
           <span style={{ fontSize: "1.2rem" }}>{icon}</span>
           <span style={{ color }}>{message}</span>
-          {/* Progress underline */}
           <span
             style={{
               position: "absolute",
@@ -61,7 +60,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 relative">
+    <div className="min-h-screen flex items-center justify-center px-4 relative bg-gray-100">
 
       {/* Background for Desktop */}
       <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-blue-200 via-purple-100 to-pink-200 -z-10"></div>
@@ -77,10 +76,10 @@ export default function LoginPage() {
       </div>
 
       {/* Main Card */}
-         <div className="flex flex-col md:flex-row w-full max-w-md md:max-w-5xl shadow-xl rounded-2xl overflow-hidden relative z-10">
+      <div className="flex flex-col md:flex-row w-full max-w-4xl shadow-xl rounded-2xl overflow-hidden relative z-10">
 
         {/* Left Image */}
-        <div className="hidden md:block md:w-1/2">
+        <div className="hidden md:block md:w-1/2 h-[500px]">
           <img
             src="/buildingimg.png"
             alt="Login background"
@@ -89,7 +88,7 @@ export default function LoginPage() {
         </div>
 
         {/* Right Form */}
-        <div className="w-full md:w-1/2 flex flex-col justify-center p-6 md:p-10 bg-white/90 backdrop-blur-md">
+        <div className="w-full md:w-1/2 flex flex-col justify-center p-8 bg-white/90 backdrop-blur-md">
 
           <div className="text-center mb-6">
             <h2 className="text-3xl font-bold text-blue-900">SOCIETY-365</h2>
@@ -100,7 +99,7 @@ export default function LoginPage() {
             Welcome Back 👋
           </h2>
 
-          <form className="space-y-6" onSubmit={handleLogin}>
+          <form className="space-y-5" onSubmit={handleLogin}>
 
             {/* Username */}
             <div className="relative">
@@ -110,7 +109,7 @@ export default function LoginPage() {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
-                className="peer w-full border border-gray-400 rounded-lg p-3 outline-none text-sm focus:border-blue-600"
+                className="peer w-full border border-gray-300 rounded-lg p-3 outline-none text-sm focus:border-blue-600"
               />
               <label
                 htmlFor="username"
@@ -128,7 +127,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="peer w-full border border-gray-400 rounded-lg p-3 outline-none text-sm focus:border-blue-600"
+                className="peer w-full border border-gray-300 rounded-lg p-3 outline-none text-sm focus:border-blue-600"
               />
               <label
                 htmlFor="password"
