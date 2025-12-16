@@ -152,13 +152,13 @@ export default function AppSidebar() {
               <CollapsibleContent>
                 <div className="ml-8 space-y-1">
                   <SidebarMenuButton asChild>
-                    <Link href="/master/building-master">Building Master</Link>
+                    <Link href="/Building">Building Master</Link>
                   </SidebarMenuButton>
                   <SidebarMenuButton asChild>
-                    <Link href="/master/floor-master">Floor Master</Link>
+                    <Link href="/flour">Floor Master</Link>
                   </SidebarMenuButton>
                   <SidebarMenuButton asChild>
-                    <Link href="/master/flat-master">Flat Master</Link>
+                    <Link href="/flats">Flat Master</Link>
                   </SidebarMenuButton>
                 </div>
               </CollapsibleContent>
