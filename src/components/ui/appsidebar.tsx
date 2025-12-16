@@ -339,7 +339,7 @@ export default function AppSidebar() {
                   <Link href="/parking/parking-setting">Parking Setting</Link>
                 </SidebarMenuButton>
                 <SidebarMenuButton asChild>
-                  <Link href="/parking/assign-parking">Assign Parking Slot</Link>
+                  <Link href="/parkingslot">Assign Parking Slot</Link>
                 </SidebarMenuButton>
                 <SidebarMenuButton asChild>
                   <Link href="/parking/parking-status">Parking Status</Link>
