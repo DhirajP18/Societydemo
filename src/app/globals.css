@@ -92,3 +92,10 @@
     @apply bg-background text-foreground;
   }
 }
+:root {
+  --bar-fill: #000000; /* Light mode */
+}
+
+.dark {
+  --bar-fill: #ffffff; /* Dark mode */
+}
