@@ -300,7 +300,7 @@ export default function AppSidebar() {
               </SidebarMenuItem>
               <CollapsibleContent className="ml-8 space-y-1">
                 <SidebarMenuButton asChild>
-                  <Link href="/service/add-provider"> Add Service Provider</Link>
+                  <Link href="/addserviceprovider"> Add Service Provider</Link>
                 </SidebarMenuButton>
               </CollapsibleContent>
             </Collapsible>
@@ -314,7 +314,7 @@ export default function AppSidebar() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent side="right" className="w-52">
                   <DropdownMenuItem asChild>
-                    <Link href="/service/add-provider">Add Service Provider</Link>
+                    <Link href="/addserviceprovider">Add Service Provider</Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
