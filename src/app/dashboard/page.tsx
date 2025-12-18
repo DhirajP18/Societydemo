@@ -147,58 +147,60 @@ export default function DashboardPage() {
 
   return (
     <div className="flex flex-col gap-2 w-full p-4 md:p-2">
-        <ChatbotWidget />
-      {/* ================= DASHBOARD CARDS ================= */}
-      <div className="grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between px-4 py-2">
-            <CardTitle className="text-sm text-muted-foreground">Total Flats</CardTitle>
-            <Building2 className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent className="px-4 pt-0 pb-3">
-            <h2 className="text-2xl font-semibold">245</h2>
-            <Progress value={75} className="mt-2 h-1.5" />
-            <p className="text-xs text-muted-foreground mt-1">75% occupied</p>
-          </CardContent>
-        </Card>
+  <ChatbotWidget />
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between px-4 py-2">
-            <CardTitle className="text-sm text-muted-foreground">Active Users</CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent className="px-4 pt-0 pb-3">
-            <h2 className="text-2xl font-semibold">18</h2>
-            <Progress value={60} className="mt-2 h-1.5" />
-            <p className="text-xs text-muted-foreground mt-1">60% online</p>
-          </CardContent>
-        </Card>
+  {/* ================= DASHBOARD CARDS ================= */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    
+    <Card>
+      <CardHeader className="flex flex-row items-center justify-between px-4 py-2">
+        <CardTitle className="text-sm text-muted-foreground">Total Flats</CardTitle>
+        <Building2 className="h-4 w-4 text-muted-foreground" />
+      </CardHeader>
+      <CardContent className="px-4 pt-0 pb-3">
+        <h2 className="text-2xl font-semibold">245</h2>
+        <Progress value={75} className="mt-2 h-1.5" />
+        <p className="text-xs text-muted-foreground mt-1">75% occupied</p>
+      </CardContent>
+    </Card>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between px-4 py-2">
-            <CardTitle className="text-sm text-muted-foreground">Monthly Rent</CardTitle>
-            <IndianRupee className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent className="px-4 pt-0 pb-3">
-            <h2 className="text-2xl font-semibold">₹12,450</h2>
-            <Progress value={50} className="mt-2 h-1.5" />
-            <p className="text-xs text-muted-foreground mt-1">50% collected</p>
-          </CardContent>
-        </Card>
+    <Card>
+      <CardHeader className="flex flex-row items-center justify-between px-4 py-2">
+        <CardTitle className="text-sm text-muted-foreground">Active Users</CardTitle>
+        <Users className="h-4 w-4 text-muted-foreground" />
+      </CardHeader>
+      <CardContent className="px-4 pt-0 pb-3">
+        <h2 className="text-2xl font-semibold">18</h2>
+        <Progress value={60} className="mt-2 h-1.5" />
+        <p className="text-xs text-muted-foreground mt-1">60% online</p>
+      </CardContent>
+    </Card>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between px-4 py-2">
-            <CardTitle className="text-sm text-muted-foreground">Pending Tasks</CardTitle>
-            <ClipboardList className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent className="px-4 pt-0 pb-3">
-            <h2 className="text-2xl font-semibold">32</h2>
-            <Progress value={40} className="mt-2 h-1.5" />
-            <p className="text-xs text-muted-foreground mt-1">40% in progress</p>
-          </CardContent>
-        </Card>
-      </div>
+    <Card>
+      <CardHeader className="flex flex-row items-center justify-between px-4 py-2">
+        <CardTitle className="text-sm text-muted-foreground">Monthly Rent</CardTitle>
+        <IndianRupee className="h-4 w-4 text-muted-foreground" />
+      </CardHeader>
+      <CardContent className="px-4 pt-0 pb-3">
+        <h2 className="text-2xl font-semibold">₹12,450</h2>
+        <Progress value={50} className="mt-2 h-1.5" />
+        <p className="text-xs text-muted-foreground mt-1">50% collected</p>
+      </CardContent>
+    </Card>
+
+    <Card>
+      <CardHeader className="flex flex-row items-center justify-between px-4 py-2">
+        <CardTitle className="text-sm text-muted-foreground">Pending Tasks</CardTitle>
+        <ClipboardList className="h-4 w-4 text-muted-foreground" />
+      </CardHeader>
+      <CardContent className="px-4 pt-0 pb-3">
+        <h2 className="text-2xl font-semibold">32</h2>
+        <Progress value={40} className="mt-2 h-1.5" />
+        <p className="text-xs text-muted-foreground mt-1">40% in progress</p>
+      </CardContent>
+    </Card>
+
+  </div>
 
       {/* ================= CHARTS ================= */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
