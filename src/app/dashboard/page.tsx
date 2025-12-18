@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-
+import ChatbotWidget from "@/components/custom/chatbotWidget";
 import {
   PieChart,
   Pie,
@@ -146,11 +146,11 @@ export default function DashboardPage() {
   );
 
   return (
-    <div className="flex flex-col gap-6 w-full p-4 md:p-6">
-
+    <div className="flex flex-col gap-2 w-full p-4 md:p-2">
+        <ChatbotWidget />
       {/* ================= DASHBOARD CARDS ================= */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-
+      <div className="grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
         <Card>
           <CardHeader className="flex flex-row items-center justify-between px-4 py-2">
             <CardTitle className="text-sm text-muted-foreground">Total Flats</CardTitle>

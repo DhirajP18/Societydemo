@@ -109,57 +109,75 @@ export default function FlatMasterPage() {
   };
 
   return (
-    <div className="min-h-screen p-4">
-      <Toaster position="top-right" />
+    <div className="min-h-screen bg-background">
+      <Toaster position="top-center" />
 
-      {/* Simple Header */}
-      <div className="flex items-center justify-center gap-3 mb-4">
-        <ParkingCircle className="w-8 h-8 text-primary" />
-        <h1 className="text-2xl font-bold">Parking Management</h1>
+      {/* Header */}
+      <div className="border-b bg-card">
+        <div className="flex items-center justify-center gap-3 py-4">
+          <ParkingCircle className="h-8 w-8 text-primary" />
+          <h1 className="text-xl font-bold">Parking Management</h1>
+        </div>
+        <p className="text-center text-sm text-muted-foreground pb-3">
+          Click a parking slot to assign or free it
+        </p>
       </div>
 
-      {/* Simple Static Instruction Line - No Animation, 100% Error-Free */}
-      <p className="text-center text-base font-medium text-primary mb-6">
-        Click a parking slot to assign or free it
-      </p>
-
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="max-w-5xl mx-auto">
-        <TabsList className="grid w-full max-w-xs mx-auto grid-cols-2 mb-4">
+      {/* Tabs */}
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <TabsList className="grid w-full grid-cols-2 rounded-none border-b">
           <TabsTrigger value="dashboard">Floor Plan</TabsTrigger>
           <TabsTrigger value="list">Flat List</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="dashboard" className="mt-0">
-          <Card className="overflow-hidden">
-            <CardHeader className="py-3 bg-muted/40">
-              <CardTitle className="text-base text-center">Ground Floor Parking</CardTitle>
+        {/* Floor Plan Tab */}
+        <TabsContent value="dashboard" className="mt-0 p-4">
+          <Card>
+            <CardHeader className="pb-3">
+              <CardTitle className="text-center text-lg">Ground Floor Parking</CardTitle>
             </CardHeader>
-            <CardContent className="p-4">
-              <div className="relative bg-muted/30 rounded-lg p-4 border border-border">
-                <div className="absolute inset-x-0 top-1/2 h-10 bg-muted-foreground/20 -translate-y-1/2 flex items-center justify-center text-muted-foreground text-xs font-medium rounded">
+            <CardContent className="p-0">
+              <div className="relative bg-muted/30 rounded-t-lg p-6 pb-12">
+                {/* Driveway */}
+                <div className="absolute inset-x-0 top-1/2 h-12 bg-muted-foreground/20 -translate-y-1/2 flex items-center justify-center text-muted-foreground text-sm font-medium">
                   DRIVEWAY
                 </div>
 
-                <div className="grid grid-cols-6 gap-3 mb-8">
+                {/* Top Row - 6 slots */}
+                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 mb-12">
                   {parkingSlots.slice(0, 6).map((slot) => (
-                    <ParkingSlot key={slot.id} slot={slot} onEmptyClick={handleEmptySlotClick} onOccupiedClick={handleOccupiedSlotClick} direction="down" />
+                    <ParkingSlot
+                      key={slot.id}
+                      slot={slot}
+                      onEmptyClick={handleEmptySlotClick}
+                      onOccupiedClick={handleOccupiedSlotClick}
+                      direction="down"
+                    />
                   ))}
                 </div>
 
-                <div className="grid grid-cols-6 gap-3">
+                {/* Bottom Row - 6 slots */}
+                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
                   {parkingSlots.slice(6, 12).map((slot) => (
-                    <ParkingSlot key={slot.id} slot={slot} onEmptyClick={handleEmptySlotClick} onOccupiedClick={handleOccupiedSlotClick} direction="up" />
+                    <ParkingSlot
+                      key={slot.id}
+                      slot={slot}
+                      onEmptyClick={handleEmptySlotClick}
+                      onOccupiedClick={handleOccupiedSlotClick}
+                      direction="up"
+                    />
                   ))}
                 </div>
               </div>
 
-              <div className="mt-4 flex justify-center gap-6 text-xs">
-                <div className="flex items-center gap-1.5">
-                  <Car className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              {/* Legend */}
+              <div className="flex justify-center gap-8 py-4 border-t bg-card">
+                <div className="flex items-center gap-2 text-sm">
+                  <Car className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
                   <span>Available</span>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <Car className="w-4 h-4 text-destructive" />
+                <div className="flex items-center gap-2 text-sm">
+                  <Car className="h-5 w-5 text-destructive" />
                   <span>Occupied</span>
                 </div>
               </div>
@@ -167,33 +185,34 @@ export default function FlatMasterPage() {
           </Card>
         </TabsContent>
 
-        <TabsContent value="list" className="mt-0">
+        {/* Flat List Tab */}
+        <TabsContent value="list" className="mt-0 p-4">
           <Card>
-            <CardHeader className="py-3">
-              <CardTitle className="text-base">Flats & Tenants</CardTitle>
+            <CardHeader>
+              <CardTitle>Flats & Tenants</CardTitle>
             </CardHeader>
-            <CardContent className="p-4">
+            <CardContent>
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead className="text-xs">Flat</TableHead>
-                      <TableHead className="text-xs">Tenant</TableHead>
-                      <TableHead className="text-xs">Building</TableHead>
-                      <TableHead className="text-xs">BHK</TableHead>
-                      <TableHead className="text-xs">Rent</TableHead>
-                      <TableHead className="text-xs">Parking</TableHead>
+                      <TableHead>Flat</TableHead>
+                      <TableHead>Tenant</TableHead>
+                      <TableHead>Building</TableHead>
+                      <TableHead>BHK</TableHead>
+                      <TableHead>Rent</TableHead>
+                      <TableHead>Parking</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {flats.map((f) => (
                       <TableRow key={f.flat}>
-                        <TableCell className="font-medium text-sm">{f.flat}</TableCell>
-                        <TableCell className="text-sm">{f.name}</TableCell>
-                        <TableCell className="text-sm">{f.building}</TableCell>
-                        <TableCell className="text-sm">{f.bhk}</TableCell>
-                        <TableCell className="text-sm">₹ {f.rent.toLocaleString()}</TableCell>
-                        <TableCell className="text-sm">
+                        <TableCell className="font-medium">{f.flat}</TableCell>
+                        <TableCell>{f.name}</TableCell>
+                        <TableCell>{f.building}</TableCell>
+                        <TableCell>{f.bhk}</TableCell>
+                        <TableCell>₹ {f.rent.toLocaleString()}</TableCell>
+                        <TableCell>
                           {parkingSlots.find((p) => p.assignedTo?.flat === f.flat)?.id || "-"}
                         </TableCell>
                       </TableRow>
@@ -210,13 +229,12 @@ export default function FlatMasterPage() {
       <Dialog open={openAssignDialog} onOpenChange={setOpenAssignDialog}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="flex items-center gap-2 text-lg">
-              <Car className="w-5 h-5" />
+            <DialogTitle className="flex items-center gap-2">
+              <Car className="h-5 w-5" />
               Assign {selectedSlot}
             </DialogTitle>
           </DialogHeader>
-
-          <div className="space-y-4 py-3">
+          <div className="space-y-4 py-4">
             <div className="relative">
               <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
               <Input
@@ -226,10 +244,9 @@ export default function FlatMasterPage() {
                 className="pl-10"
               />
             </div>
-
             <div className="max-h-64 overflow-y-auto space-y-2">
               {filteredFlats.length === 0 ? (
-                <p className="text-center py-6 text-muted-foreground text-sm">No flats found</p>
+                <p className="text-center text-muted-foreground py-6">No flats found</p>
               ) : (
                 filteredFlats.map((tenant) => {
                   const isAssigned = parkingSlots.some((p) => p.assignedTo?.flat === tenant.flat);
@@ -237,16 +254,16 @@ export default function FlatMasterPage() {
                     <div
                       key={tenant.flat}
                       onClick={() => !isAssigned && setSelectedTenant(tenant)}
-                      className={`p-3 rounded-md border cursor-pointer transition-colors text-sm
+                      className={`p-3 rounded-md border cursor-pointer transition-colors
                         ${selectedTenant?.flat === tenant.flat ? "border-primary bg-accent" : "border-border"}
                         ${isAssigned ? "opacity-50 cursor-not-allowed" : "hover:bg-accent"}`}
                     >
                       <div className="flex justify-between items-start">
                         <div>
                           <div className="font-medium">{tenant.flat}</div>
-                          <div className="text-muted-foreground">{tenant.name}</div>
+                          <div className="text-sm text-muted-foreground">{tenant.name}</div>
                         </div>
-                        {isAssigned && <Badge variant="secondary" className="text-xs">Assigned</Badge>}
+                        {isAssigned && <Badge variant="secondary">Assigned</Badge>}
                       </div>
                     </div>
                   );
@@ -254,7 +271,6 @@ export default function FlatMasterPage() {
               )}
             </div>
           </div>
-
           <DialogFooter>
             <Button variant="outline" onClick={() => setOpenAssignDialog(false)}>Cancel</Button>
             <Button onClick={handleAssign} disabled={!selectedTenant}>
@@ -269,7 +285,7 @@ export default function FlatMasterPage() {
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle className="flex items-center gap-2">
-              <AlertTriangle className="w-5 h-5 text-destructive" />
+              <AlertTriangle className="h-5 w-5 text-destructive" />
               Free Parking Slot?
             </AlertDialogTitle>
             <AlertDialogDescription>
@@ -288,35 +304,33 @@ export default function FlatMasterPage() {
   );
 }
 
-// Parking Slot Component - Theme-aware
+// Responsive Parking Slot
 function ParkingSlot({ slot, onEmptyClick, onOccupiedClick, direction }: any) {
   const isOccupied = !!slot.assignedTo;
 
   return (
     <motion.div
-      whileHover={{ scale: 1.08 }}
+      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       onClick={() => (isOccupied ? onOccupiedClick(slot.id) : onEmptyClick(slot.id))}
-      className={`relative flex flex-col items-center justify-center h-28 rounded-md border-2 cursor-pointer transition-all shadow-sm
+      className={`relative flex flex-col items-center justify-center h-32 sm:h-36 rounded-lg border-2 cursor-pointer transition-all shadow-md
         ${isOccupied 
-          ? "bg-destructive/10 border-destructive/50 hover:bg-destructive/20" 
-          : "bg-emerald-500/10 border-emerald-500/50 hover:bg-emerald-500/20 border-dashed"
+          ? "bg-destructive/10 border-destructive/60 hover:bg-destructive/20" 
+          : "bg-emerald-500/10 border-emerald-500/60 hover:bg-emerald-500/20 border-dashed"
         }`}
     >
       {isOccupied ? (
         <>
-          <Car className={`w-14 h-14 ${direction === "down" ? "" : "rotate-180"} text-destructive`} />
-          <div className="absolute bottom-1 text-center px-1">
-            <div className="font-semibold text-xs leading-tight">{slot.assignedTo.flat}</div>
-            <div className="text-[10px] text-muted-foreground leading-tight truncate max-w-full">
-              {slot.assignedTo.name}
-            </div>
+          <Car className={`w-16 h-16 sm:w-20 sm:h-20 ${direction === "down" ? "" : "rotate-180"} text-destructive`} />
+          <div className="absolute bottom-2 text-center px-2 w-full">
+            <div className="font-bold text-sm sm:text-base">{slot.assignedTo.flat}</div>
+            <div className="text-xs text-muted-foreground truncate">{slot.assignedTo.name}</div>
           </div>
         </>
       ) : (
         <div className="text-center">
-          <div className="font-bold text-sm">{slot.id}</div>
-          <div className="text-xs text-muted-foreground">Empty</div>
+          <div className="font-bold text-base sm:text-lg">{slot.id}</div>
+          <div className="text-sm text-muted-foreground">Empty</div>
         </div>
       )}
     </motion.div>

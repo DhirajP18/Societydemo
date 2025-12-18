@@ -39,6 +39,7 @@ import {
   Book,
   Bell,
   ChevronDown,
+  FolderOpen,
 } from "lucide-react";
 import { SidebarFooter } from "@/components/ui/sidebar";
 import { buttonVariants } from "@/components/ui/button";
@@ -464,6 +465,53 @@ export default function AppSidebar() {
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
           <Link href="/announcements/add-events">Add Events</Link>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  </SidebarMenuItem>
+)}
+
+{/*Digital Document Valute*/}
+
+{state === "expanded" ? (
+  <Collapsible>
+    <SidebarMenuItem>
+      <CollapsibleTrigger asChild>
+        <SidebarMenuButton className="flex items-center justify-between py-3">
+          <div className="flex items-center gap-3">
+            <FolderOpen size={20} />
+            <span>Documents</span>
+          </div>
+          <ChevronDown size={16} />
+        </SidebarMenuButton>
+      </CollapsibleTrigger>
+    </SidebarMenuItem>
+
+    <CollapsibleContent>
+      <div className="ml-8 space-y-1">
+        <SidebarMenuButton asChild>
+          <Link href="/Uploaddocument">Add Documents</Link>
+        </SidebarMenuButton>
+        <SidebarMenuButton asChild>
+          <Link href="/downloaddocuments">Check Documents</Link>
+        </SidebarMenuButton>
+      </div>
+    </CollapsibleContent>
+  </Collapsible>
+) : (
+  <SidebarMenuItem>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <SidebarMenuButton className="justify-center py-3">
+          <FolderOpen size={20} />
+        </SidebarMenuButton>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent side="right" align="start" className="w-52">
+        <DropdownMenuItem asChild>
+          <Link href="/Uploaddocument">Add Documents</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/downloaddocuments">Check Documents</Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
