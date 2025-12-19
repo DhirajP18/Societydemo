@@ -302,6 +302,9 @@ export default function AppSidebar() {
                 <SidebarMenuButton asChild>
                   <Link href="/addserviceprovider"> Add Service Provider</Link>
                 </SidebarMenuButton>
+                 <SidebarMenuButton asChild>
+                  <Link href="/Serviceproviderlist"> Service Provider</Link>
+                </SidebarMenuButton>
               </CollapsibleContent>
             </Collapsible>
           ) : (
@@ -315,6 +318,9 @@ export default function AppSidebar() {
                 <DropdownMenuContent side="right" className="w-52">
                   <DropdownMenuItem asChild>
                     <Link href="/addserviceprovider">Add Service Provider</Link>
+                  </DropdownMenuItem>
+                   <DropdownMenuItem asChild>
+                    <Link href="/Serviceproviderlist">Service Provider</Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -392,7 +398,7 @@ export default function AppSidebar() {
                   <Link href="/Payrent">Payments</Link>
                 </SidebarMenuButton>
                 <SidebarMenuButton asChild>
-                  <Link href="/account/rent-setting"> Rent Setting</Link>
+                  <Link href="/paymentstatus"> Rent Status</Link>
                 </SidebarMenuButton>
                 <SidebarMenuButton asChild>
                   <Link href="/account/maintenance-setting"> Maintenance Setting</Link>
@@ -415,7 +421,7 @@ export default function AppSidebar() {
                     <Link href="/Payrent"> Payments</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/account/rent-setting"> Rent Setting</Link>
+                    <Link href="/paymentstatus"> Rent Status</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link href="/account/maintenance-setting"> Maintenance Setting</Link>
@@ -539,7 +545,7 @@ export default function AppSidebar() {
           <Link href="/report/monthly-rent">Monthly Rent</Link>
         </SidebarMenuButton>
         <SidebarMenuButton asChild>
-          <Link href="/report/other-report1">Report 2</Link>
+          <Link href="/Maitanancereport">Maitanance Report</Link>
         </SidebarMenuButton>
         <SidebarMenuButton asChild>
           <Link href="/report/other-report2">Report 3</Link>
@@ -560,7 +566,7 @@ export default function AppSidebar() {
           <Link href="/report/monthly-rent">Monthly Rent</Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/report/other-report1">Report 2</Link>
+          <Link href="/Maitanancereport">Maitanance Report</Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
           <Link href="/report/other-report2">Report 3</Link>
