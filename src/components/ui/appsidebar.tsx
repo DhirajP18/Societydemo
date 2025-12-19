@@ -389,7 +389,7 @@ export default function AppSidebar() {
                   <Link href="/account/bank"> Add Bank</Link>
                 </SidebarMenuButton>
                 <SidebarMenuButton asChild>
-                  <Link href="/account/payments">Payments</Link>
+                  <Link href="/Payrent">Payments</Link>
                 </SidebarMenuButton>
                 <SidebarMenuButton asChild>
                   <Link href="/account/rent-setting"> Rent Setting</Link>
@@ -412,7 +412,7 @@ export default function AppSidebar() {
                     <Link href="/account/bank"> Add Bank</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/account/payments"> Payments</Link>
+                    <Link href="/Payrent"> Payments</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link href="/account/rent-setting"> Rent Setting</Link>
