@@ -208,7 +208,7 @@ export default function AppSidebar() {
                     <Link href="/users/create-user">Create User</Link>
                   </SidebarMenuButton>
                   <SidebarMenuButton asChild>
-                    <Link href="/users/give-access">Give Access</Link>
+                    <Link href="/Accesscontrol">Give Access</Link>
                   </SidebarMenuButton>
                   <SidebarMenuButton asChild>
                     <Link href="/users/create-role">Create Role</Link>
@@ -229,7 +229,7 @@ export default function AppSidebar() {
                     <Link href="/users/create-user">Create User</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/users/give-access">Give Access</Link>
+                    <Link href="/Accesscontrol">Give Access</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link href="/users/create-role">Create Role</Link>
@@ -395,13 +395,13 @@ export default function AppSidebar() {
                   <Link href="/account/bank"> Add Bank</Link>
                 </SidebarMenuButton>
                 <SidebarMenuButton asChild>
-                  <Link href="/Payrent">Payments</Link>
+                  <Link href="/Payrent">Rent Payments</Link>
                 </SidebarMenuButton>
                 <SidebarMenuButton asChild>
                   <Link href="/paymentstatus"> Rent Status</Link>
                 </SidebarMenuButton>
                 <SidebarMenuButton asChild>
-                  <Link href="/account/maintenance-setting"> Maintenance Setting</Link>
+                  <Link href="/Paymaintanance">Pay Maintenance</Link>
                 </SidebarMenuButton>
               </CollapsibleContent>
             </Collapsible>
@@ -418,13 +418,13 @@ export default function AppSidebar() {
                     <Link href="/account/bank"> Add Bank</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/Payrent"> Payments</Link>
+                    <Link href="/Payrent">Rent Payments</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link href="/paymentstatus"> Rent Status</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/account/maintenance-setting"> Maintenance Setting</Link>
+                    <Link href="/Paymaintanance">Pay Maintenance</Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -449,10 +449,10 @@ export default function AppSidebar() {
     <CollapsibleContent>
       <div className="ml-8 space-y-1">
         <SidebarMenuButton asChild>
-          <Link href="/announcements/add-notice">Add Notice</Link>
+          <Link href="/Notice">Add Notice</Link>
         </SidebarMenuButton>
         <SidebarMenuButton asChild>
-          <Link href="/announcements/add-events">Add Events</Link>
+          <Link href="/Event">Add Events</Link>
         </SidebarMenuButton>
       </div>
     </CollapsibleContent>
@@ -467,10 +467,10 @@ export default function AppSidebar() {
       </DropdownMenuTrigger>
       <DropdownMenuContent side="right" align="start" className="w-52">
         <DropdownMenuItem asChild>
-          <Link href="/announcements/add-notice">Add Notice</Link>
+          <Link href="/Notice">Add Notice</Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/announcements/add-events">Add Events</Link>
+          <Link href="/Event">Add Events</Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
@@ -576,7 +576,61 @@ export default function AppSidebar() {
   </SidebarMenuItem>
 )}
 
-         
+          {/* REPORTS MODULE */}
+{state === "expanded" ? (
+  <Collapsible>
+    <SidebarMenuItem>
+      <CollapsibleTrigger asChild>
+        <SidebarMenuButton className="flex items-center justify-between py-3">
+          <div className="flex items-center gap-3">
+            <Book size={20} />
+            <span>FeedBack & Complaints</span>
+          </div>
+          <ChevronDown size={16} />
+        </SidebarMenuButton>
+      </CollapsibleTrigger>
+    </SidebarMenuItem>
+
+    <CollapsibleContent>
+      <div className="ml-8 space-y-1">
+        <SidebarMenuButton asChild>
+          <Link href="/Feedback">Feedback</Link>
+        </SidebarMenuButton>
+        <SidebarMenuButton asChild>
+          <Link href="/Complaints">Complaints</Link>
+        </SidebarMenuButton>
+        <SidebarMenuButton asChild>
+          <Link href="/PollVote">poll & Vote</Link>
+        </SidebarMenuButton>
+
+
+      </div>
+    </CollapsibleContent>
+  </Collapsible>
+) : (
+  <SidebarMenuItem>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <SidebarMenuButton className="justify-center py-3">
+          <Book size={20} />
+        </SidebarMenuButton>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent side="right" align="start" className="w-52">
+        <DropdownMenuItem asChild>
+          <Link href="/Feedback">Feedback</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/Complaints">Complaints</Link>
+        </DropdownMenuItem>
+       
+       <DropdownMenuItem asChild>
+          <Link href="/PollVote">Poll & Vote</Link>
+        </DropdownMenuItem>
+
+      </DropdownMenuContent>
+    </DropdownMenu>
+  </SidebarMenuItem>
+)}
 
         </SidebarMenu>
       </SidebarContent>

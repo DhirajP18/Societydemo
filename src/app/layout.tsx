@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import ClientLayoutWrapper from "@/components/ui/ClientLayoutWrapper";
+import { Toaster } from "@/components/ui/toaster";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -22,12 +23,24 @@ export const metadata: Metadata = {
   description: "Society Management System",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
+      >
+        {/* ✅ REMOVE unsupported props */}
         <ThemeProvider>
-          <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
+          <ClientLayoutWrapper>
+            {children}
+          </ClientLayoutWrapper>
+
+          {/* ✅ Shadcn Toast */}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
