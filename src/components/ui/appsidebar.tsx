@@ -40,6 +40,8 @@ import {
   Bell,
   ChevronDown,
   FolderOpen,
+  MessageSquare ,
+  PhoneCall ,
 } from "lucide-react";
 import { SidebarFooter } from "@/components/ui/sidebar";
 import { buttonVariants } from "@/components/ui/button";
@@ -576,14 +578,14 @@ export default function AppSidebar() {
   </SidebarMenuItem>
 )}
 
-          {/* REPORTS MODULE */}
+          {/* Feedback MODULE */}
 {state === "expanded" ? (
   <Collapsible>
     <SidebarMenuItem>
       <CollapsibleTrigger asChild>
         <SidebarMenuButton className="flex items-center justify-between py-3">
           <div className="flex items-center gap-3">
-            <Book size={20} />
+            <MessageSquare size={20} />
             <span>FeedBack & Complaints</span>
           </div>
           <ChevronDown size={16} />
@@ -626,6 +628,53 @@ export default function AppSidebar() {
        <DropdownMenuItem asChild>
           <Link href="/PollVote">Poll & Vote</Link>
         </DropdownMenuItem>
+
+      </DropdownMenuContent>
+    </DropdownMenu>
+  </SidebarMenuItem>
+)}
+
+
+     {/* Help MODULE */}
+{state === "expanded" ? (
+  <Collapsible>
+    <SidebarMenuItem>
+      <CollapsibleTrigger asChild>
+        <SidebarMenuButton className="flex items-center justify-between py-3">
+          <div className="flex items-center gap-3">
+            <PhoneCall  size={20} />
+            <span>Help & Suport</span>
+          </div>
+          <ChevronDown size={16} />
+        </SidebarMenuButton>
+      </CollapsibleTrigger>
+    </SidebarMenuItem>
+
+    <CollapsibleContent>
+      <div className="ml-8 space-y-1">
+        <SidebarMenuButton asChild>
+          <Link href="/Helpsuport">Help & Suport</Link>
+        </SidebarMenuButton>
+        
+       
+
+
+      </div>
+    </CollapsibleContent>
+  </Collapsible>
+) : (
+  <SidebarMenuItem>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <SidebarMenuButton className="justify-center py-3">
+          <Book size={20} />
+        </SidebarMenuButton>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent side="right" align="start" className="w-52">
+        <DropdownMenuItem asChild>
+          <Link href="/Helpsuport">Help & Suport</Link>
+        </DropdownMenuItem>
+       
 
       </DropdownMenuContent>
     </DropdownMenu>
